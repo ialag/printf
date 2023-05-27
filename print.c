@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * custom_specifiers - a function that cheks on custom spec
+ * custom_specifiers - a function that cheks on custom specifiers
  * @list: the arguments list
  * @type: specifiers
  * @length: the length of the string
