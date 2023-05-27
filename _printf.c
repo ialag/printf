@@ -25,7 +25,7 @@ int _printf(const char *format, ...);
 			i++;
 			if (flags(&format[i], &length))
 				i++;
-			custom_specifiers(list, format[i],&length);
+			custom_specifiers(list, format[i], &length);
 		}
 		else
 			length = length + _putchar(format[i]);
