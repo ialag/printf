@@ -22,6 +22,4 @@ void custom_specifiers(va_list list, char type, int *length)
 		print_number(va_arg(list, int), length);
 	else if (type == 'o')
 		(*length) = (*length) + print_octal(va_arg(list, int));
-	else if (type == 'u')
-		_unsigned_int(va_arg(list, unsigned int), length);
 }
