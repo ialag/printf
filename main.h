@@ -23,8 +23,8 @@
  *
  * @unsign: unsigned value of the flags
  * @plus_flag: plus_flag specified
- * @space_falg: hashtag_flag specified
- * @hashtag_falg: if_flag specified
+ * @space_flag: hashtag_flag specified
+ * @hashtag_flag: if_flag specified
  * @zero_flag: if_flag specified
  * @minus_flag: if_flag specified
  * @precision: precision specified
@@ -32,7 +32,7 @@
  *
  *
  * @h_modifier: on if h_modifier is specified
- * @l_modofoer: l_modifier is specified
+ * @l_modifier: l_modifier is specified
  */
 typedef struct parameters
 {
