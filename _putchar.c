@@ -4,11 +4,22 @@
  * _putchar - A function prints the character c to stdout
  * @c: the character to print
  * Return: On success 1.
+ * if error , return -1
  */
 
-int _putchar(char c)
+int _putchar(int c)
 {
-	return (write(1, &c, 1));
+	static int i;
+	static char buf[OUTPUT_BUT_SIZE];
+
+	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
+	{
+		write(1, buf, 1);
+		i = 0;
+	}
+	if (c != BUF_FLUSH)
+		buf[i++] = c;
+	return (1);
 }
 
 
@@ -17,23 +28,14 @@ int _putchar(char c)
 /**
  * _puts - a function that print a string
  * @string: the string to print
- * Return: length of the string
+ * Return: void
  */
-
 int _puts(char *string)
 {
-	int l;
+	char *a = string;
 
-	l = 0;
-	if (!string)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	while (string[1])
-	{
-		write(1, &string[1], 1);
-		l++;
-	}
-	return (1);
+
+	while (*string)
+		_putchar(*string++);
+	return (string - a);
 }
