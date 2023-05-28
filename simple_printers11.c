@@ -40,6 +40,7 @@ return (sum); }
  * @params: the parameters struct
  * Return: number of bytes printed
 */
+int print_rot13_string(char *str);
 int print_rot13(va_list ap, params_t *params)
 {
 char *a = va_arg(ap, char *);
