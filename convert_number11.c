@@ -49,7 +49,7 @@ if (params->hashtag_flag && l)
 *--string = '0';
 }
 params->unsign = 1;
-return (c += print_number(str, params));
+return (c += print_number(string, params));
 }
 /**
  * print_binary - prints unsigned binary number
