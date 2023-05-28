@@ -23,7 +23,7 @@ if (params->hashtag_flag && l)
 *--string = '0';
 }
 params->unsign = 1;
-return (c += print_number(str, params));
+return (c += print_number(string, params));
 }
 /**
  * print_HEX -prints unsigned hex nbrs in uppercase
@@ -35,7 +35,7 @@ int print_HEX(va_list ap, params_t *params)
 {
 unsigned long l;
 int c = 0;
-char *str;
+char *string;
 if (params->l_modifier)
 l = (unsigned long)va_arg(ap, unsigned long);
 else if (params->h_modifier)
