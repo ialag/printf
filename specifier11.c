@@ -17,7 +17,7 @@ specifier_t specifiers[] = {
 {"u", print_unsigned},
 {"x", print_hex},
 {"X", print_HEX},
-{"p", print_address},
+{"p", print_adress},
 {"S", print_S},
 {"r", print_rev},
 {"R", print_rot13},
@@ -108,17 +108,18 @@ return (i);
 */
 int get_modifier(char *s, params_t *params)
 {
-int i = 0;
-switch (*s)
-{
-case 'h':
-i = params->h_modifier = 1;
-break;
-case 'l':
-i = params->l_modifier = 1;
-break;
-}
-return (i);
+	int i = 0;
+
+	switch (*s)
+	{
+		case 'h':
+			i = params->h_modifier = 1;
+			break;
+		case 'l':
+			i = params->l_modifier = 1;
+			break;
+	}
+	return (i);
 }
 
 /**
