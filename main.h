@@ -76,7 +76,7 @@ int print_S(va_list ap, params_t *params);
 
 	/* number11.c */
 char *convert(long int num, int base, int flag, params_t *params);
-int prnt_unsigned(va_list ap, params_t *params);
+int print_unsigned(va_list ap, params_t *params);
 int print_adress(va_list ap, params_t *params);
 
 
