@@ -100,12 +100,6 @@ break;
 return (i);
 }
 
-/**
- * get_modifier -gets the width from the format string
- * @s: the format string
- * @params: the parameters struct
- * Return: if modifier was valis
-*/
 int get_modifier(char *s, params_t *params)
 {
 	int i = 0;
