@@ -35,7 +35,7 @@ int print_HEX(va_list ap, params_t *params)
 {
 unsigned long l;
 int c = 0;
-char *str;
+char *string;
 if (params->l_modifier)
 l = (unsigned long)va_arg(ap, unsigned long);
 else if (params->h_modifier)
