@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int sim = 0;
+	int sum = 0;
 	char *p, *start;
 	va_list ap;
 	params_t params = PARAMS_INIT;
@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 		}
 		start = p;
 		p++;
-		while (get_flag((p, &params))
+		while (get_flag(p, &params))
 		{
 			p++;
 		}
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 			sum = sum + print_from_to(start, p,
 				params.l_modifier || params.h_modifier ? p - 1 : 0);
 		else
-			sumn = sum + get_print_fun(p, ap, &params);
+			sum = sum + get_print_func(p, ap, &params);
 	}
 	_putchar(BUF_FLUSH);
 	va_end(ap);
