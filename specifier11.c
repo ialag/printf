@@ -101,7 +101,7 @@ return (i);
 }
 
 /**
- * get_width -gets the width from the format string
+ * get_modifier -gets the width from the format string
  * @s: the format string
  * @params: the parameters struct
  * Return: if modifier was valis
