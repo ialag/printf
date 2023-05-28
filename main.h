@@ -34,7 +34,7 @@
  * @h_modifier: on if h_modifier is specified
  * @l_modofoer: l_modifier is specified
  */
-typedef srtuct parameters
+typedef struct parameters
 {
 	unsigned int unsign : 1;
 	unsigned int plus_flag : 1;
@@ -46,7 +46,7 @@ typedef srtuct parameters
 	unsigned int precision;
 	unsigned int h_modifier : 1;
 	unsigned int l_modifier : 1;
-}params_t;
+} params_t;
 
 
 
@@ -58,8 +58,8 @@ typedef srtuct parameters
 typedef struct specifier
 {
 	char *specifier;
-	int (*f) (va_list, params_t *);
-}specifier_t;
+	int (*f)(va_list, params_t *);
+} specifier_t;
 
 
 

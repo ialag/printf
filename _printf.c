@@ -1,68 +1,52 @@
 #include "main.h"
 
-/**
- * flags - function that checks flags
- * @type: specifier
- * @length: length string
- *
- * Return: 1 if puts smtg, 0 if not
- */
-int flags(const char *type, int *length)
-{
-	if (*type == ' ')
-	{
-		*length += _putchar(' ');
-		return (1);
-	}
-	else if (*type == '+')
-	{
-		*length += _putchar('+');
-		return (1);
-	}
-	else if (*type == '#')
-	{
-		if (*(type + 1) == 'o')
-			*length = _putchar('0');
-		if (*(type + 1) == 'x' || *(type + 1) == 'X')
-			*length = _printf("0x");
-		return (1);
-	}
-	return (0);
-}
-
-
 
 /**
  * _printf - function that print the formatted string
  * @format: formatted string
  *
  *
- * Return: the length of the string
+ * Return: nombre bytes printed  of the string
  */
 int _printf(const char *format, ...)
 {
-	int i;
-	int length;
-	va_list list;
+	int sim = 0;
+	char *p, *start;
+	va_list ap;
+	params_t params = PARAMS_INIT;
 
-	i = 0;
-	length = 0;
+	va_start(ap, format);
+
+
 	if (!format || (format[0] == '%' && !format[1]))
-		return (1);
-	va_start(list, format);
-	while (format[i])
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = (char *)format; *p; p++)
 	{
-		if (format[i] == '%')
+		init_params(&params, ap);
+		if (*p != '%')
 		{
-			i++;
-			if (flags(&format[i], &length))
-				i++;
-			custom_specifiers(list, format[i], &length);
+			sum = sum + _putchar(*p);
+				continue;
 		}
+		start = p;
+		p++;
+		while (get_flag((p, &params))
+		{
+			p++;
+		}
+		p = get_width(p, &params, ap);
+		p = get_precision(p, &params, ap);
+		if (get_modifier(p, &params))
+			p++;
+		if (!get_specifier(p))
+			sum = sum + print_from_to(start, p,
+				params.l_modifier || params.h_modifier ? p - 1 : 0);
 		else
-			length = length + _putchar(format[i]);
-		i++;
+			sumn = sum + get_print_fun(p, ap, &params);
 	}
-	va_end(list);
-	return (length);
+	_putchar(BUF_FLUSH);
+	va_end(ap);
+	return (sum);
 }
