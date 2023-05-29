@@ -104,7 +104,7 @@ int print_number_left_shift(char *string, params_t *params)
 		pad_char = ' ';
 	neg1 = neg2 = (!params->unsign && *string == '-');
 
-	if (neg && i < params->width && pad_char == '0' && !params->minus_flag)
+	if (neg1 && i < params->width && pad_char == '0' && !params->minus_flag)
 		string++;
 	else
 		neg1 = 0;
