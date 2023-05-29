@@ -45,46 +45,45 @@ sum += _putchar(*string);
 }
 return (sum);
 }
-
+int print_rot13_string(char *string);
 /**
  * print_rot13 - prints string in rot13
  * @ap: string
  * @params: the parameters struct
  * Return: number of bytes printed
 */
-int print_rot13_string(char *str);
 int print_rot13(va_list ap, params_t *params)
 {
-char *a = va_arg(ap, char *);
+char *string = va_arg(ap, char *);
 (void)params;
-if (a)
+if (string)
 {
-return (print_rot13_string(a));
+return (print_rot13_string(string));
 }
 return (0);
 }
 /**
  * print_rot13_string - prints string in rot13
- * @str: string to print
+ * @string: string to print
  * Return: number of bytes printed
 */
-int print_rot13_string(char *str)
+int print_rot13_string(char *string)
 {
 int count = 0;
 char arr[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-while (*str)
+while (*string)
 {
-if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z'))
+if ((*string >= 'A' && *string <= 'Z') || (*string >= 'a' && *string <= 'z'))
 {
-int index = *str - 'A';
-if (*str >= 'a' && *str <= 'z')
-index = *str - 'a' + 26;
+int index = *string - 'A';
+if (*string >= 'a' && *string <= 'z')
+index = *string - 'a' + 26;
 count += _putchar(arr[index]);
 }
 else
 {
-count += _putchar(*str); }
-str++;
+count += _putchar(*string); }
+string++;
 }
 return (count);
 }
