@@ -9,15 +9,16 @@
 */
 int print_from_to(char *start, char *stop, char *except)
 {
-	int sum = 0;
-
-	while (start <= stop)
-	{
-		if (start != except)
-			sum += _putchar(*start);
-		start++;
-	}
-	return (sum);
+int sum = 0;
+while (start <= stop)
+{
+if (start != except)
+{
+sum += _putchar(*start);
+}
+start++;
+}
+return (sum);
 }
 
 /**
@@ -28,19 +29,21 @@ int print_from_to(char *start, char *stop, char *except)
 */
 int print_rev(va_list ap, params_t *params)
 {
-	int len, sum = 0;
-	char *string = va_arg(ap, char *);
-	(void)params;
+int len, sum = 0;
+char *string = va_arg(ap, char *);
+(void)params;
 
-	if (string)
-	{
-		for (len = 0; *string; string--)
-			len++;
-		string--;
-	for (; len > 0; len--, string--)
-		sum += _putchar(*string);
-	}
-	return (sum);
+if (string)
+{
+for (len = 0; string[len]; len++)
+;
+string--;
+for (; len > 0; len--, string--)
+{
+sum += _putchar(*string);
+}
+}
+return (sum);
 }
 
 /**
@@ -49,41 +52,39 @@ int print_rev(va_list ap, params_t *params)
  * @params: the parameters struct
  * Return: number of bytes printed
 */
-<<<<<<< HEAD
 int print_rot13_string(char *str);
 int print_rot13(va_list ap, params_t *params)
-=======
-
-/*int print_rot13(va_list ap, params_t *params)
->>>>>>> 907b21922c238a7f0962bdc1206e5fc24e0ab957
 {
 char *a = va_arg(ap, char *);
 (void)params;
 if (a)
 {
-return (print_rot13_string(a)); }
-return (0); } */
-int print_rot13(va_list ap, params_t *params)
+return (print_rot13_string(a));
+}
+return (0);
+}
+/**
+ * print_rot13_string - prints string in rot13
+ * @str: string to print
+ * Return: number of bytes printed
+*/
+int print_rot13_string(char *str)
 {
-	int i, index;
-	int count = 0;
-	char arr[] =
-		"NOPQRSTUVWXYZABCDEFGHIJKLM	nopqrstuvwxyzabcdefghijklm";
-	char *a = va_arg(ap, char *);
-	(void)params;
-
-	i = 0;
-	index = 0;
-	while (a[i])
-	{
-		if ((a[i] >= 'A' && a[i] <= 'Z') || (a[i] >= 'a' && a[i] <= 'z'))
-		{
-			index = a[i] - 65;
-			count += _putchar(arr[index]);
-		}
-		else
-			count += _putchar(a[i]);
-		i++;
-	}
-	return (count);
+int count = 0;
+char arr[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+while (*str)
+{
+if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z'))
+{
+int index = *str - 'A';
+if (*str >= 'a' && *str <= 'z')
+index = *str - 'a' + 26;
+count += _putchar(arr[index]);
+}
+else
+{
+count += _putchar(*str); }
+str++;
+}
+return (count);
 }
