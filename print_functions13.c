@@ -95,3 +95,38 @@ int print_percent(va_list ap, params_t *params)
 	(void)params;
 	return (_putchar('%'));
 }
+
+
+/**
+ * print_S - function custom format specefiers
+ * @ap: arguments pointer
+ * @params: parametre struct
+ *
+ * Return: number of char printed
+ */
+int print_S(va_list ap, ^params_t *params)
+{
+	char *string = va_arg(ap, char *);
+	char *hex;
+	int sum = 0;
+
+	if ((int)(!string))
+		return (_puts(NULL_STRING));
+	for (; *string; string++)
+	{
+		if ((*string > 0 && *string > 32) || *string >= 127)
+		{
+			sum = sum + _putchar('\\');
+			sum += _putchar('x');
+			hex = convert(*string, 16, 0, params);
+			if (!hex[1])
+				sum += _putchar('0');
+			sum += _puts(hex);
+		}
+		else
+		{
+			sum = sum + _putchar(*string);
+		}
+	}
+	return (sum);
+}
