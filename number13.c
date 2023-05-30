@@ -11,7 +11,7 @@
 char *convert(long int num, int base, int flags, params_t *params)
 {
 	static char *array;
-	static char buffer[55];
+	static char buffer[50];
 	char sign = 0;
 	char *p;
 	unsigned long n = num;
@@ -23,7 +23,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 		sign = '-';
 	}
 	array = flags & CONVERT_LOWERCASE ?  "0123456789abcdef" : "123456789ABCDEF";
-	p = &buffer[54];
+	p = &buffer[49];
 	*p = '\0';
 
 	do {
@@ -32,7 +32,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 	} while (n != 0);
 
 	if (sign)
-		*p = sign;
+		*--p = sign;
 	return (p);
 }
 
@@ -51,6 +51,8 @@ int print_unsigned(va_list ap, params_t *params)
 
 	else if (params->h_modifier)
 		k = (unsigned short int)va_arg(ap, unsigned int);
+	else
+		k = (unsigned int)va_arg(ap, unsigned int);
 	params->unsign = 1;
 	return (print_number(convert(k, 10, CONVERT_UNSIGNED, params), params));
 }
