@@ -70,7 +70,7 @@ return (0);
 int print_rot13_string(char *string)
 {
 int count = 0;
-char arr[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+char arr[] = "NOPQRSTUVWXYZABCDEFGHIJKLM   nopqrstuvwxyzabcdefghijklm";
 while (*string)
 {
 if ((*string >= 'A' && *string <= 'Z') || (*string >= 'a' && *string <= 'z'))
