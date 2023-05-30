@@ -33,17 +33,16 @@ char *string = va_arg(ap, char *);
 
 if (string)
 {
-for (len = 0; string[len]; len++)
-;
+for (len = 0; *string; string++)
+len++;
 string--;
 for (; len > 0; len--, string--)
-{
 sum += _putchar(*string);
-}
 }
 return (sum);
 }
-int print_rot13_string(char *string);
+
+
 /**
  * print_rot13 - prints string in rot13
  * @ap: string
@@ -52,36 +51,24 @@ int print_rot13_string(char *string);
 */
 int print_rot13(va_list ap, params_t *params)
 {
-char *string = va_arg(ap, char *);
-(void)params;
-if (string)
-{
-return (print_rot13_string(string));
-}
-return (0);
-}
-/**
- * print_rot13_string - prints string in rot13
- * @string: string to print
- * Return: number of bytes printed
-*/
-int print_rot13_string(char *string)
-{
+int i, index;
 int count = 0;
 char arr[] = "NOPQRSTUVWXYZABCDEFGHIJKLM   nopqrstuvwxyzabcdefghijklm";
-while (*string)
+char *a = va_arg(ap, char *);
+(void)params;
+i = 0;
+index = 0;
+while (a[i])
 {
-if ((*string >= 'A' && *string <= 'Z') || (*string >= 'a' && *string <= 'z'))
+if ((a[i] >= 'A' && a[i] <= 'Z') ||
+(a[i] >= 'a' && a[i] <= 'z'))
 {
-int index = *string - 'A';
-if (*string >= 'a' && *string <= 'z')
-index = *string - 'a' + 26;
+index = a[i] - 65;
 count += _putchar(arr[index]);
 }
 else
-{
-count += _putchar(*string); }
-string++;
+count += _putchar(a[i]);
+i++;
 }
 return (count);
 }
