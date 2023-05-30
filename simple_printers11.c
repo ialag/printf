@@ -13,9 +13,7 @@ int sum = 0;
 while (start <= stop)
 {
 if (start != except)
-{
 sum += _putchar(*start);
-}
 start++;
 }
 return (sum);
